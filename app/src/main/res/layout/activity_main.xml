@@ -1,0 +1,130 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:float="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff2c2c2c"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/meter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <com.zexuan.filler.velocimeter.VelocimeterView
+            android:id="@+id/velocimeter2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:bottom_velocimeter_color="@color/bottom_velocimeter"
+            app:digital_number_blur_color="@color/digital_number"
+            app:digital_number_color="@color/digital_number"
+            app:external_progress_color="@color/external_progress"
+            app:inside_progress_color="@color/inside_progress"
+            app:internal_velocimeter_color="@color/internal_velocimeter"
+            app:needle_blur_color="@color/needle"
+            app:needle_color="@color/needle"
+            app:progress_blur_color="@color/external_progress"
+            app:show_bottom_bar="false" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/target_rg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/meter"
+        android:layout_marginTop="-70dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/target_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="填充目标分区"/>
+        <RadioButton
+            android:id="@+id/system_rb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="System分区"
+            android:textColor="#ffffff" />
+
+        <RadioButton
+            android:id="@+id/data_rb"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data分区"
+            android:textColor="#ffffff" />
+    </RadioGroup>
+
+    <com.zexuan.filler.floatEditText.FloatLabelEditText
+        android:id="@+id/edi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/target_rg"
+        >
+        <EditText
+            android:id="@+id/remainder_space_edt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="设置填充结束后剩余容量(MB)"
+            android:inputType="number"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textStyle="bold" />
+    </com.zexuan.filler.floatEditText.FloatLabelEditText>
+
+    <LinearLayout
+        android:id="@+id/btn_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edi"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fill_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="#ff32494b"
+            android:elevation="15dp"
+            android:text="开始填充"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/release_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="#ff32494b"
+            android:elevation="15dp"
+            android:text="释放空间"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/status_tv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_ll"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Filling is done"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+</RelativeLayout>
